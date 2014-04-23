@@ -8,8 +8,8 @@
  * different template.
  *
  * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
+ * @subpackage photoGrauTheme
+ * @since PhotoGrau 0.1
  */
 
 get_header(); ?>

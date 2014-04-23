@@ -1,25 +1,25 @@
 <?php
 /**
- * Implement an optional custom header for Twenty Twelve
+ * Implement an optional custom header for photoGrauTheme
  *
  * See http://codex.wordpress.org/Custom_Headers
  *
  * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
+ * @subpackage photoGrauTheme
+ * @since photoGrauTheme 1.0
  */
 
 /**
  * Set up the WordPress core custom header arguments and settings.
  *
  * @uses add_theme_support() to register support for 3.4 and up.
- * @uses twentytwelve_header_style() to style front-end.
- * @uses twentytwelve_admin_header_style() to style wp-admin form.
- * @uses twentytwelve_admin_header_image() to add custom markup to wp-admin form.
+ * @uses photograutheme_header_style() to style front-end.
+ * @uses photograutheme_admin_header_style() to style wp-admin form.
+ * @uses photograutheme_admin_header_image() to add custom markup to wp-admin form.
  *
- * @since Twenty Twelve 1.0
+ * @since photoGrauTheme 1.0
  */
-function twentytwelve_custom_header_setup() {
+function photograutheme_custom_header_setup() {
 	$args = array(
 		// Text color and image (empty to use none).
 		'default-text-color'     => '515151',
@@ -38,35 +38,35 @@ function twentytwelve_custom_header_setup() {
 		'random-default'         => false,
 
 		// Callbacks for styling the header and the admin preview.
-		'wp-head-callback'       => 'twentytwelve_header_style',
-		'admin-head-callback'    => 'twentytwelve_admin_header_style',
-		'admin-preview-callback' => 'twentytwelve_admin_header_image',
+		'wp-head-callback'       => 'photograutheme_header_style',
+		'admin-head-callback'    => 'photograutheme_admin_header_style',
+		'admin-preview-callback' => 'photograutheme_admin_header_image',
 	);
 
 	add_theme_support( 'custom-header', $args );
 }
-add_action( 'after_setup_theme', 'twentytwelve_custom_header_setup' );
+add_action( 'after_setup_theme', 'photograutheme_custom_header_setup' );
 
 /**
  * Load our special font CSS file.
  *
- * @since Twenty Twelve 1.2
+ * @since photoGrauTheme 1.2
  */
-function twentytwelve_custom_header_fonts() {
-	$font_url = twentytwelve_get_font_url();
+function photograutheme_custom_header_fonts() {
+	$font_url = photograutheme_get_font_url();
 	if ( ! empty( $font_url ) )
-		wp_enqueue_style( 'twentytwelve-fonts', esc_url_raw( $font_url ), array(), null );
+		wp_enqueue_style( 'photograutheme-fonts', esc_url_raw( $font_url ), array(), null );
 }
-add_action( 'admin_print_styles-appearance_page_custom-header', 'twentytwelve_custom_header_fonts' );
+add_action( 'admin_print_styles-appearance_page_custom-header', 'photograutheme_custom_header_fonts' );
 
 /**
  * Style the header text displayed on the blog.
  *
  * get_header_textcolor() options: 515151 is default, hide text (returns 'blank'), or any hex value.
  *
- * @since Twenty Twelve 1.0
+ * @since photoGrauTheme 1.0
  */
-function twentytwelve_header_style() {
+function photograutheme_header_style() {
 	$text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -75,7 +75,7 @@ function twentytwelve_header_style() {
 
 	// If we get this far, we have custom styles.
 	?>
-	<style type="text/css" id="twentytwelve-header-css">
+	<style type="text/css" id="photograutheme-header-css">
 	<?php
 		// Has the text been hidden?
 		if ( ! display_header_text() ) :
@@ -102,11 +102,11 @@ function twentytwelve_header_style() {
 /**
  * Style the header image displayed on the Appearance > Header admin panel.
  *
- * @since Twenty Twelve 1.0
+ * @since photoGrauTheme 1.0
  */
-function twentytwelve_admin_header_style() {
+function photograutheme_admin_header_style() {
 ?>
-	<style type="text/css" id="twentytwelve-admin-header-css">
+	<style type="text/css" id="photograutheme-admin-header-css">
 	.appearance_page_custom-header #headimg {
 		border: none;
 		font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -144,9 +144,9 @@ function twentytwelve_admin_header_style() {
  *
  * This callback overrides the default markup displayed there.
  *
- * @since Twenty Twelve 1.0
+ * @since photoGrauTheme 1.0
  */
-function twentytwelve_admin_header_image() {
+function photograutheme_admin_header_image() {
 	?>
 	<div id="headimg">
 		<?php
